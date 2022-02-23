@@ -4,6 +4,7 @@
 
 **本指导目的是简单描述挖矿套件的工作原理，并提供一些我的总结经验，帮助大家更好地加入 Phala 隐私计算的世界。**
 
+将下述 RPC 命令统合起来的 shell 脚本 [phala_status.sh](./phala_status.sh)
 ---
 
 ## 各组件的功能与要求
@@ -39,7 +40,7 @@ stateDiagram-v2
 
 使用 9933 端口获取到的结果是 khala 链节点的状态，使用 9934 端口获取到的结果是 kusama 链节点的状态。
 
-#### 查询节点健康状态
+* #### 查询节点健康状态
 
 ```
 curl -sH "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "system_health", "params":[]}' http://localhost:9933 | jq '.result'
@@ -61,7 +62,7 @@ isSyncing 代表节点是否在同步中的状态，如果 peers 不为 0 的状
 
 peers 代表节点的对等点的数量，上限为 50，如果为 0 请检查网络是否畅通或者端口是否开放。
 
-#### 查询节点的版本号
+* #### 查询节点的版本号
 
 ```
 curl -sH "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "system_version", "params":[]}' http://localhost:9933 | jq '.result'
@@ -75,7 +76,7 @@ curl -sH "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method"
 
 其中只要关心 result 最前面的数字即可，**2022/2/23 号为止，最新的版本号为 0.1.11**
 
-#### 查询节点的区块高度
+* #### 查询节点的区块高度
 
 ```
 curl -sH "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "system_syncState", "params":[]}' http://localhost:9933 | jq '.result'
@@ -168,6 +169,3 @@ curl -X POST -sH "Content-Type: application/json" -d '{"input": {}, "nonce": {}}
 * registered 为机器是否已在链上注册的布尔值，为 true 代表可以进行链上添加操作
 * score 为机器的本地评分，会与链上评分有一定差距，并且链上评分的更新会需要几个小时左右。刚注册完成的矿机能添加进矿池，但无法进行挖矿的原因大部分是因为链上评分尚未更新
 * version 为 pruntime 的版本号，更新 pruntime 持久化功能前的最后一个版本为 0.1.3。**截至 2022/2/23 的最新版本为 0.2.0，有持久化功能**
-
----
-将上述 RPC 命令统合起来的 shell 脚本 [phala_status.sh](./phala_status.sh)
