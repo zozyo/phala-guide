@@ -220,6 +220,8 @@ NODE_IP=10.1.1.1
 
 也可参照节点机修改保存目录的方式更改目录。
 
+`CORES` 为想要使用的核心数量，`MNEMONIC` 为 GAS 费账号助记词，`OPERATOR` 为 POOL 创建者的账号地址。
+
 ---
 
 ## 将矿机与 pherry 分别部署
@@ -257,6 +259,8 @@ PRUNTIME_VOLUMES=/var/khala-pruntime-data:/root/data
 CORES=4
 ```
 
+`CORES` 为想要使用的核心数量
+
 ***注意！运行 pherry 设备也需要执行和节点机一样的环境部署命令***
 
 ### 运行 pherry 设备的 `docker-compose.yml` 示例
@@ -293,3 +297,5 @@ OPERATOR=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 NODE_IP=10.1.1.1
 MINER_IP=10.2.2.2
 ```
+
+`MNEMONIC` 为 GAS 费账号助记词，`OPERATOR` 为 POOL 创建者的账号地址。
