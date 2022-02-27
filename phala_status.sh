@@ -1,3 +1,5 @@
+#!/bin/bash
+
 node_ip="127.0.0.1"
 pruntime_ip="127.0.0.1"
 
