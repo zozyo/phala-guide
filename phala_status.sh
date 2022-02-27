@@ -1,6 +1,14 @@
 node_ip="127.0.0.1"
 pruntime_ip="127.0.0.1"
 
+function isSynced(){
+	if [ $1 = "false" ]; then
+                echo "\E[1;32m已同步\E[0m"
+        else
+                echo "同步中"
+        fi
+}
+
 function get_node_info(){
 	#get_node_version
 	node_system_version=$(curl -sH "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "system_version", "params":[]}' http://${node_ip}:9933 | jq '.result'  | tr -d '"' | cut -d'-' -f1)
@@ -13,11 +21,8 @@ function get_node_info(){
 	node_khala_system_syncState_currentBlock=$(echo $node_khala_system_syncState | jq '.currentBlock')
 	node_khala_system_syncState_highestBlock=$(echo $node_khala_system_syncState | jq '.highestBlock')
 	node_khala_diff=$(expr $node_khala_system_syncState_highestBlock - $node_khala_system_syncState_currentBlock)
-	if [ $node_khala_system_health_isSyncing = "false" ]; then
-		node_khala_synced="\E[1;32m已同步\E[0m"
-	else
-		node_khala_synced="同步中"
-	fi
+	node_khala_synced=$(isSynced $node_khala_system_health_isSyncing)
+
 	#get_kusama_info
 	node_kusama_system_health=$(curl -sH "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "system_health", "params":[]}' http://${node_ip}:9934 | jq '.result')
 	node_kusama_system_health_isSyncing=$(echo $node_kusama_system_health | jq '.isSyncing')
@@ -25,16 +30,13 @@ function get_node_info(){
 	node_kusama_system_syncState=$(curl -sH "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "system_syncState", "params":[]}' http://${node_ip}:9934 | jq '.result')
 	node_kusama_system_syncState_currentBlock=$(echo $node_kusama_system_syncState | jq '.currentBlock')
 	node_kusama_system_syncState_highestBlock=$(echo $node_kusama_system_syncState | jq '.highestBlock')
-	if [ $node_kusama_system_health_isSyncing = "false" ]; then
-		node_kusama_synced="\E[1;32m已同步\E[0m"
-	else
-		node_kusama_synced="同步中"
-	fi
+	node_kusama_synced=$(isSynced $node_kusama_system_health_isSyncing)
 
 	#get node ip length
 	node_ip_length=${#node_ip}
 	hyphen=""
 	for i in `seq 0 $node_ip_length`; do hyphen="-$hyphen"; done
+
 	#print info
 	printf "
 --$hyphen--
