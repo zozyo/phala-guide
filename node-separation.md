@@ -100,7 +100,7 @@ services:                                                   #定义服务部分,
 
 ## 将节点分离到节点机，示例中节点机不运行挖矿，因此不需要 SGX 支持
 
-### 节点机需要执行的环境部署命令
+### 节点机需要执行的环境部署命令（这里使用清华镜像源下载docker）
 
 ```
 sudo apt-get install jq curl wget unzip zip dkms -y
@@ -120,6 +120,16 @@ sudo usermod -aG docker $USER
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
 sudo chmod +x /usr/local/bin/docker-compose
+```
+
+验证是否成功安装 docker-compose
+
+```
+sudo docker-compose -v
+
+如果成功安装，则应该得到如下的返回
+
+docker-compose version 1.29.2, build 5becea4c
 ```
 
 ### 节点机的 `docker-compose.yml` 示例
