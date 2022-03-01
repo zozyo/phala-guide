@@ -73,7 +73,7 @@ vrrp_instance VI_1 {
 
 virtual_server 192.168.1.100 9944 {
     delay_loop 5
-    lb_algo wlc
+    lb_algo wrr
     lb_kind DR
     protocol TCP
 
@@ -100,7 +100,7 @@ virtual_server 192.168.1.100 9944 {
 
 virtual_server 192.168.1.100 9945 {
     delay_loop 5
-    lb_algo wlc
+    lb_algo wrr
     lb_kind DR
     protocol TCP
 
@@ -144,10 +144,10 @@ ipvsadm -Ln
 IP Virtual Server version 1.2.1 (size=4096)
 Prot LocalAddress:Port Scheduler Flags
   -> RemoteAddress:Port           Forward Weight ActiveConn InActConn
-TCP  192.168.1.100:9944 wlc
+TCP  192.168.1.100:9944 wrr
   -> 192.168.1.30:9944         Route   3      0         0
   -> 192.168.1.40:9944         Route   3      0         0
-TCP  192.168.1.100:9945 wlc
+TCP  192.168.1.100:9945 wrr
   -> 192.168.1.30:9945         Route   3      0         0
   -> 192.168.1.40:9945         Route   3      0         0
 ```
@@ -190,7 +190,7 @@ vrrp_instance VI_1 {
 
 virtual_server 192.168.1.100 9944 {
     delay_loop 5
-    lb_algo wlc
+    lb_algo wrr
     lb_kind DR
     protocol TCP
 
@@ -217,7 +217,7 @@ virtual_server 192.168.1.100 9944 {
 
 virtual_server 192.168.1.100 9945 {
     delay_loop 5
-    lb_algo wlc
+    lb_algo wrr
     lb_kind DR
     protocol TCP
 
@@ -261,10 +261,10 @@ ipvsadm -Ln
 IP Virtual Server version 1.2.1 (size=4096)
 Prot LocalAddress:Port Scheduler Flags
   -> RemoteAddress:Port           Forward Weight ActiveConn InActConn
-TCP  192.168.1.100:9944 wlc
+TCP  192.168.1.100:9944 wrr
   -> 192.168.1.30:9944         Route   3      0         0
   -> 192.168.1.40:9944         Route   3      0         0
-TCP  192.168.1.100:9945 wlc
+TCP  192.168.1.100:9945 wrr
   -> 192.168.1.30:9945         Route   3      0         0
   -> 192.168.1.40:9945         Route   3      0         0
 ```
