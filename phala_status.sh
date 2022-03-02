@@ -22,7 +22,6 @@ function get_node_info(){
 	node_khala_system_syncState=$(curl -sH "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "system_syncState", "params":[]}' http://${node_ip}:9933 | jq '.result')
 	node_khala_system_syncState_currentBlock=$(echo $node_khala_system_syncState | jq '.currentBlock')
 	node_khala_system_syncState_highestBlock=$(echo $node_khala_system_syncState | jq '.highestBlock')
-	node_khala_diff=$(expr $node_khala_system_syncState_highestBlock - $node_khala_system_syncState_currentBlock)
 	node_khala_synced=$(isSynced $node_khala_system_health_isSyncing)
 
 	#get_kusama_info
