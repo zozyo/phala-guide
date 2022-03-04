@@ -103,7 +103,7 @@ while true; do
 
 	#if stuck too long, restart node
 	if [ $node_stuck_count -ge $stuck_times ]; then
-		echo "检测到卡顿超时！重启节点！"
+		echo "检测到卡顿超时！重启节点！" 		#可替换为各种告警脚本命令
 		docker restart phala-node
 		restart_count=`expr $restart_count + 1`
 		node_stuck_count=0
@@ -117,9 +117,11 @@ while true; do
 
 	#if restart not work, try update node
 	if [ $restart_count -ge $restart_times ]; then
-		phala stop node
+		echo "重启多次无效！更新节点！" 		#可替换为各种告警脚本命令
+		phala stop node 			#停止节点命令，取决于用户部署环境
+		docker image rm phalanetwork/khala-node
 		docker pull phalanetwork/khala-node
-		phala start
+		phala start 				#启动节点命令，取决于用户部署环境
 		restart_count=0
 		#waiting 5 mins for node fully restarted
 		for i in `seq 300 -1 1`
