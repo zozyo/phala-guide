@@ -104,8 +104,7 @@ while true; do
 	#if stuck too long, restart node
 	if [ $node_stuck_count -ge $stuck_times ]; then
 		echo "检测到卡顿超时！重启节点！"
-		phala stop node
-		phala start
+		docker restart phala-node
 		restart_count=`expr $restart_count + 1`
 		node_stuck_count=0
 		#waiting 5 mins for node fully restarted
