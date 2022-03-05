@@ -276,3 +276,9 @@ TCP  192.168.1.100:9945 wrr
 ### 节点机
 
 运行此脚本即可 [vip.sh](./vip.sh)
+
+```
+wget https://raw.githubusercontent.com/zozyo/phala-guide/main/vip.sh
+sudo chmod +x vip.sh
+sudo ./vip.sh
+```
