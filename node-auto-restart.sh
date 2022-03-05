@@ -1,11 +1,11 @@
 #!/bin/bash
 
 function isSynced(){
-	if [ $1 = "false" ]; then
-                echo "\E[1;32m已同步\E[0m"
-        else
-                echo "同步中"
-        fi
+	if [ -n $1 -o $1 = "false" ]; then
+		echo "\E[1;32m已同步\E[0m"
+	else
+		echo "同步中"
+	fi
 }
 
 #need sudo
@@ -95,7 +95,7 @@ while true; do
 "
 
 	#if stuck, increase node_stuck_count
-	if [ $khala_diff -lt 1 || $kusama_diff -lt 1 ]; then
+	if [ $khala_diff -lt 1 -o $kusama_diff -lt 1 ]; then
 		node_stuck_count=`expr $node_stuck_count + 1`
 	else
 		node_stuck_count=0
