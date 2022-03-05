@@ -67,8 +67,7 @@ while true; do
             |   ksm节点   |  当前高度   |  最高高度   |  对等点数量  |
 ----------------------------------------------------------------------
             |   $node_kusama_synced    |  %-10s |  %-10s |   %-10s |
-----------------------------------------------------------------------
-" $node_system_version $node_khala_system_syncState_currentBlock $node_khala_system_syncState_highestBlock $node_khala_system_health_peers $node_kusama_system_syncState_currentBlock $node_kusama_system_syncState_highestBlock $node_kusama_system_health_peers
+----------------------------------------------------------------------" $node_system_version $node_khala_system_syncState_currentBlock $node_khala_system_syncState_highestBlock $node_khala_system_health_peers $node_kusama_system_syncState_currentBlock $node_kusama_system_syncState_highestBlock $node_kusama_system_health_peers
 
 	#if getting info fails
 	if [ -z ${node_khala_system_syncState_currentBlock} ]; then
@@ -89,7 +88,8 @@ while true; do
 	khala_block_last_check=$node_khala_system_syncState_currentBlock
 	kusama_block_last_check=$node_kusama_system_syncState_currentBlock
 
-	printf "----------------------------------------------------------------------
+	printf "
+	----------------------------------------------------------------------
 卡顿计数 |  $node_stuck_count  | 重启计数 |  $restart_count  |
 "
 
