@@ -4,6 +4,12 @@
 
 写了个生成备份的脚本，有需要的可以使用 [auto_node_snapshot.sh](./auto_node_snapshot.sh)
 
+下载脚本（已下载的可跳过）
+
+```
+wget https://raw.githubusercontent.com/zozyo/phala-guide/main/auto_node_snapshot.sh -O auto_node_snapshot.sh
+```
+
 脚本使用了 pigz 加快压缩速度，会使用所有 CPU 线程，**不建议在未分离的机器上使用该脚本！**
 
 示例使用方法：

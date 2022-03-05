@@ -277,8 +277,18 @@ TCP  192.168.1.100:9945 wrr
 
 运行此脚本即可 [vip.sh](./vip.sh)
 
+下载脚本（已下载的可跳过）
+
 ```
-wget https://raw.githubusercontent.com/zozyo/phala-guide/main/vip.sh
-sudo chmod +x vip.sh
-sudo ./vip.sh
+wget https://raw.githubusercontent.com/zozyo/phala-guide/main/vip.sh -O vip.sh
+```
+
+添加脚本运行权限
+```
+sudo chmod +x node-auto-restart.sh
+```
+
+运行脚本
+```
+sudo ./node-auto-restart.sh
 ```

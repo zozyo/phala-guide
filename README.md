@@ -8,6 +8,21 @@
 
 将下述 RPC 命令统合起来的 shell 脚本 [phala_status.sh](./phala_status.sh)
 
+1. 下载脚本（已下载的可跳过）
+```
+wget https://raw.githubusercontent.com/zozyo/phala-guide/main/phala_status.sh -O phala_status.sh
+```
+
+2. 添加脚本运行权限
+```
+sudo chmod +x phala_status.sh
+```
+
+3. 运行脚本
+```
+sudo ./phala_status.sh
+```
+
 此脚本只是做个简单的应用示范，只需要端口能通就可以显示状态，可以在其他机器上使用。
 
 ---
