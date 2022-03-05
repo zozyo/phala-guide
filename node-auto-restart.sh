@@ -89,8 +89,7 @@ while true; do
 	khala_block_last_check=$node_khala_system_syncState_currentBlock
 	kusama_block_last_check=$node_kusama_system_syncState_currentBlock
 
-	printf "
-----------------------------------------------------------------------
+	printf "----------------------------------------------------------------------
 卡顿计数 |  $node_stuck_count  | 重启计数 |  $restart_count  |
 "
 
