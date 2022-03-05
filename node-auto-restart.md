@@ -10,8 +10,18 @@
 
 ## 使用方法，运行下列命令
 
+下载脚本（已下载的可跳过）
+
 ```
 wget https://raw.githubusercontent.com/zozyo/phala-guide/main/node-auto-restart.sh -O node-auto-restart.sh
+```
+
+添加脚本运行权限
+```
 sudo chmod +x node-auto-restart.sh
+```
+
+运行脚本
+```
 sudo ./node-auto-restart.sh
 ```
