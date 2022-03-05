@@ -5,3 +5,13 @@
 运行此脚本即可 [node-auto-restart.sh](./node-auto-restart.sh)
 
 可以自定义检测到节点停更后，多少分钟后重启节点。多少次重启后仍未解决的，更新节点版本。
+
+---
+
+## 使用方法，运行下列命令
+
+```
+wget https://raw.githubusercontent.com/zozyo/phala-guide/main/node-auto-restart.sh
+sudo chmod +x node-auto-restart.sh
+sudo ./node-auto-restart.sh
+```
