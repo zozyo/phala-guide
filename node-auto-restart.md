@@ -11,7 +11,7 @@
 ## 使用方法，运行下列命令
 
 ```
-wget https://raw.githubusercontent.com/zozyo/phala-guide/main/node-auto-restart.sh
+wget https://raw.githubusercontent.com/zozyo/phala-guide/main/node-auto-restart.sh -O node-auto-restart.sh
 sudo chmod +x node-auto-restart.sh
 sudo ./node-auto-restart.sh
 ```
