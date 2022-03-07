@@ -89,7 +89,7 @@ while true; do
 	kusama_block_last_check=$node_kusama_system_syncState_currentBlock
 
 	printf "
-	----------------------------------------------------------------------
+---------------------------------
 卡顿计数 |  $node_stuck_count  | 重启计数 |  $restart_count  |
 "
 
