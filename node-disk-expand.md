@@ -33,7 +33,7 @@ sdb      8:16    0   4T  0 disk
 * 如果为 nvme 硬盘，可能的返回是这样
 ```
 sda      8:0    0   1T  0 disk
-nvme0n1      259:0    0   4T  0 disk
+nvme0n1  259:0    0   4T  0 disk
 ```
 
 **可以得知新磁盘被分配到的卷标为 sdb (或是 nvme0n1)**
