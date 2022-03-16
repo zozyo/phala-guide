@@ -32,7 +32,7 @@ sdb      8:16    0   4T  0 disk
 
 * 如果为 nvme 硬盘，可能的返回是这样
 ```
-sda      8:0    0   1T  0 disk
+sda      8:0      0   1T  0 disk
 nvme0n1  259:0    0   4T  0 disk
 ```
 
