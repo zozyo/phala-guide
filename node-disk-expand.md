@@ -24,13 +24,13 @@ sudo phala stop
 sudo lsblk | grep disk
 ```
 
-如果为 SATA 硬盘，可能的返回是这样
+* 如果为 SATA 硬盘，可能的返回是这样
 ```
 sda      8:0    0   1T  0 disk
 sdb      8:16    0   4T  0 disk
 ```
 
-如果为 nvme 硬盘，可能的返回是这样
+* 如果为 nvme 硬盘，可能的返回是这样
 ```
 sda      8:0    0   1T  0 disk
 nvme0n1      259:0    0   4T  0 disk
@@ -43,14 +43,14 @@ nvme0n1      259:0    0   4T  0 disk
 
 ### 3. 格式化硬盘并建立分区（以 ext4 举例）
 
-SATA 盘
+* SATA 盘
 ```
 sudo parted /dev/sdb mklabel gpt
 下一步输入 yes 并回车
 sudo mkfs.ext4 -F /dev/sdb
 ```
 
-nvme 盘
+* nvme 盘
 ```
 sudo parted /dev/nvme0n1 mklabel gpt
 下一步输入 yes 并回车
@@ -59,13 +59,13 @@ sudo mkfs.ext4 -F /dev/nvme0n1
 
 ### 4. 挂载磁盘（举例挂载到 /var/node_data/khala-dev-node）
 
-SATA 盘
+* SATA 盘
 ```
 sudo mkdir /var/node_data
 sudo mount /dev/sdb /var/node_data
 ```
 
-nvme 盘
+* nvme 盘
 ```
 sudo mkdir /var/node_data
 sudo mount /dev/nvme0n1 /var/node_data
@@ -88,4 +88,23 @@ sudo sed -i "4c NODE_VOLUMES=/var/node_data/khala-dev-node:/root/data" /opt/phal
 
 ```
 sudo phala start
+```
+
+### 8. 写入开机挂载
+
+获取磁盘的UUID
+
+* SATA 盘
+```
+sudo blkid /dev/sdb | cut -d'"' -f2
+```
+
+* nvme 盘
+```
+sudo blkid /dev/nvme0n1 | cut -d'"' -f2
+```
+
+替换下面命令中 **** 部分为刚刚获取到的 UUID
+```
+sudo echo "UUID=****  /var/node_data  ext4  defaults  0  0" >> /etc/fstab
 ```
