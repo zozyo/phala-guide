@@ -12,7 +12,7 @@
 
 分离的配置文件编辑好后，只需在配置文件存放的文件夹下运行 `sudo docker-compose up -d` 即可启动配置文件内所有服务。
 
-停止服务的命令为
+* 停止服务的命令为
 
 ```
 sudo docker-compose down phala-node       #停止节点
@@ -20,13 +20,13 @@ sudo docker-compose down phala-pruntime   #停止挖矿软件 pruntime
 sudo docker-compose down phala-pherry     #停止中转组件 pherry
 ```
 
-升级配置文件内所有镜像的命令为
+* 升级配置文件内所有镜像的命令为
 
 ```
 sudo docker-compose pull    #升级前建议先停止服务
 ```
 
-查看容器当前运行详细状况的命令为
+* 查看容器当前运行详细状况的命令为
 
 ```
 sudo docker-compose top
@@ -100,7 +100,7 @@ services:                                                   #定义服务部分,
 
 ## 将节点分离到节点机，示例中节点机不运行挖矿，因此不需要 SGX 支持
 
-### 节点机需要执行的环境部署命令（这里使用清华镜像源下载docker）
+* **节点机需要执行的环境部署命令（这里使用清华镜像源下载docker）**
 
 ```
 sudo apt-get install jq curl wget unzip zip dkms -y
@@ -114,7 +114,7 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 sudo usermod -aG docker $USER
 ```
 
-*鉴于国内网络环境, docker-compose 可能会下载失败，建议使用代理执行下面的命令*
+* *鉴于国内网络环境, docker-compose 可能会下载失败，建议使用代理执行下面的命令*
 
 ```
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -122,17 +122,17 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-验证是否成功安装 docker-compose
+* 验证是否成功安装 docker-compose
 
 ```
 sudo docker-compose -v
 
-如果成功安装，则应该得到如下的返回
+* 如果成功安装，则应该得到如下的返回
 
 docker-compose version 1.29.2, build 5becea4c
 ```
 
-### 节点机的 `docker-compose.yml` 示例
+* **节点机的 `docker-compose.yml` 示例**
 
 ```
 version: "3"
@@ -155,7 +155,7 @@ services:
     - ${NODE_VOLUMES}
 ```
 
-### 节点机的 `.env` 示例
+* **节点机的 `.env` 示例**
 ```
 NODE_IMAGE=phalanetwork/khala-node
 NODE_VOLUMES=/var/khala-dev-node:/root/data
@@ -172,7 +172,7 @@ NODE_NAME=khala_node
 
 先正常使用 solo 脚本安装，并配置, 但是先不执行 `sudo phala start`
 
-### 矿机的 `docker-compose.yml` 示例，此示例在矿机上运行 pherry
+* **矿机的 `docker-compose.yml` 示例，此示例在矿机上运行 pherry**
 
 ```
 version: "3"
@@ -216,7 +216,7 @@ services:
     ]
 ```
 
-### 矿机的 `.env` 示例，此示例的节点 IP 地址为 10.1.1.1
+* **矿机的 `.env` 示例，此示例的节点 IP 地址为 10.1.1.1**
 
 ```
 PRUNTIME_IMAGE=phalanetwork/phala-pruntime
@@ -235,12 +235,14 @@ NODE_IP=10.1.1.1
 `CORES` 为想要使用的核心数量，`MNEMONIC` 为 GAS 费账号助记词，`OPERATOR` 为 POOL 创建者的账号地址。
 
 ---
+---
+---
 
 ## 将矿机与 pherry 分别部署
 
 矿机上先正常使用 solo 脚本安装，并配置, 但是先不执行 `sudo phala start`
 
-### 矿机的 `docker-compose.yml` 示例，此示例在矿机上只运行 pruntime
+* **矿机的 `docker-compose.yml` 示例，此示例在矿机上只运行 pruntime**
 
 ```
 version: "3"
@@ -263,7 +265,7 @@ services:
     - ${PRUNTIME_VOLUMES}
 ```
 
-### 矿机的 `.env` 示例
+* **矿机的 `.env` 示例**
 
 ```
 PRUNTIME_IMAGE=phalanetwork/phala-pruntime
@@ -275,7 +277,7 @@ CORES=4
 
 ***注意！运行 pherry 设备也需要执行和节点机一样的环境部署命令***
 
-### 运行 pherry 设备的 `docker-compose.yml` 示例
+* **运行 pherry 设备的 `docker-compose.yml` 示例**
 
 ```
 version: "3"
@@ -300,7 +302,7 @@ services:
     ]
 ```
 
-### 运行 pherry 设备的 `.env` 示例，此示例的节点 IP 地址为 10.1.1.1, 矿机 IP 地址为 10.2.2.2
+* **运行 pherry 设备的 `.env` 示例，此示例的节点 IP 地址为 10.1.1.1, 矿机 IP 地址为 10.2.2.2**
 
 ```
 PHERRY_IMAGE=phalanetwork/phala-pherry
