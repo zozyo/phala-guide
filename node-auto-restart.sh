@@ -2,7 +2,7 @@
 
 #restart commands
 function restartNode(){
-	echo "检测到卡顿超时！重启节点！" 			#可替换为各种告警脚本命令
+	echo "检测到卡顿超时！重启节点！" 		#可替换为各种告警脚本命令
 	phala stop node 				#停止节点命令，取决于用户部署环境
 	phala start 					#启动节点命令，取决于用户部署环境
 }
