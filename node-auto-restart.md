@@ -25,3 +25,25 @@ sudo chmod +x node-auto-restart.sh
 ```
 sudo ./node-auto-restart.sh
 ```
+
+* 重启命令和升级命令，根据不同部署环境命令不同，默认写的 solo 脚本的命令
+
+修改重启命令和升级命令，只需修改脚本文件中后面添加了注释的几行即可
+
+```
+#restart commands
+function restartNode(){
+	echo "检测到卡顿超时！重启节点！" 		#可替换为各种告警脚本命令
+	phala stop node 						#停止节点命令，取决于用户部署环境
+	phala start 							#启动节点命令，取决于用户部署环境
+}
+
+#update commands
+function updateNode() {
+	echo "重启多次无效！更新节点！" 			#可替换为各种告警脚本命令
+	phala stop node 						#停止节点命令，取决于用户部署环境
+	docker image rm phalanetwork/khala-node	#移除旧 node 镜像
+	docker pull phalanetwork/khala-node		#拉取新 node 镜像
+	phala start 							#启动节点命令，取决于用户部署环境
+}
+```
