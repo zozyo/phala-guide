@@ -95,17 +95,17 @@ while true; do
 	khala_block_last_check=$node_khala_system_syncState_currentBlock
 	kusama_block_last_check=$node_kusama_system_syncState_currentBlock
 
-	printf "
----------------------------------
-卡顿计数 |  $node_stuck_count  | 重启计数 |  $restart_count  |
-"
-
 	#if stuck, increase node_stuck_count
 	if [ $khala_diff -lt 1 -o $kusama_diff -lt 1 ]; then
 		node_stuck_count=`expr $node_stuck_count + 1`
 	else
 		node_stuck_count=0
 	fi
+
+	printf "
+---------------------------------
+卡顿计数 |  $node_stuck_count  | 重启计数 |  $restart_count  |
+"
 
 	#if stuck too long, restart node
 	if [ $node_stuck_count -ge $stuck_times ]; then
