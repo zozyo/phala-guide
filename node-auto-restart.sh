@@ -100,6 +100,7 @@ while true; do
 		node_stuck_count=`expr $node_stuck_count + 1`
 	else
 		node_stuck_count=0
+		restart_count=0
 	fi
 
 	printf "
