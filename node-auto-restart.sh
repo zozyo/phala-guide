@@ -1,7 +1,9 @@
 #!/bin/bash
 
 function isSynced(){
-	if [ -n $1 -o $1 = "false" ]; then
+	if [ -z $1 ]; then
+		echo "未启动"
+	elif [ -n $1 -o $1 = "false" ]; then
 		echo "\E[1;32m已同步\E[0m"
 	else
 		echo "同步中"
