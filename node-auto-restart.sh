@@ -16,6 +16,7 @@ if [ $(id -u) -ne 0 ]; then
 	exit 1
 fi
 
+#need jq
 if ! type jq > /dev/null; then
 	apt-get install -y jq
 fi
