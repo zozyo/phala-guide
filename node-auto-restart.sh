@@ -16,6 +16,10 @@ if [ $(id -u) -ne 0 ]; then
 	exit 1
 fi
 
+if ! type jq > /dev/null; then
+	apt-get install -y jq
+fi
+
 #var
 node_ip="127.0.0.1"
 khala_block_last_check=0
