@@ -15,9 +15,9 @@
 * 停止服务的命令为
 
 ```
-sudo docker-compose down phala-node       #停止节点
-sudo docker-compose down phala-pruntime   #停止挖矿软件 pruntime
-sudo docker-compose down phala-pherry     #停止中转组件 pherry
+sudo docker-compose kill phala-node       #停止节点
+sudo docker-compose kill phala-pruntime   #停止挖矿软件 pruntime
+sudo docker-compose kill phala-pherry     #停止中转组件 pherry
 ```
 
 * 升级配置文件内所有镜像的命令为
