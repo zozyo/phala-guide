@@ -283,6 +283,12 @@ TCP  192.168.1.100:9945 wrr
 wget https://raw.githubusercontent.com/zozyo/phala-guide/main/vip.sh -O vip.sh
 ```
 
+* *国内下载有问题的可以使用下面的命令*
+```
+wget https://github.suugee.workers.dev/https://raw.githubusercontent.com/zozyo/phala-guide/main/vip.sh -O vip.sh
+```
+
+
 添加脚本运行权限
 ```
 sudo chmod +x node-auto-restart.sh
