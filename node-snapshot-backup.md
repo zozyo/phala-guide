@@ -10,6 +10,11 @@
 wget https://raw.githubusercontent.com/zozyo/phala-guide/main/auto_node_snapshot.sh -O auto_node_snapshot.sh
 ```
 
+* *国内下载有问题的可以使用下面的命令*
+```
+wget https://github.suugee.workers.dev/https://raw.githubusercontent.com/zozyo/phala-guide/main/auto_node_snapshot.sh -O auto_node_snapshot.sh
+```
+
 脚本使用了 pigz 加快压缩速度，会使用所有 CPU 线程，**不建议在未分离的机器上使用该脚本！**
 
 示例使用方法：
