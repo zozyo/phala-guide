@@ -291,10 +291,10 @@ wget https://github.suugee.workers.dev/https://raw.githubusercontent.com/zozyo/p
 
 添加脚本运行权限
 ```
-sudo chmod +x node-auto-restart.sh
+sudo chmod +x vip.sh
 ```
 
 运行脚本
 ```
-sudo ./node-auto-restart.sh
+sudo ./vip.sh
 ```
