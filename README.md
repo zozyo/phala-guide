@@ -50,7 +50,7 @@ stateDiagram-v2
 
 ### 1. node (节点)
 
-目前节点区块数据大小为 **762 GB**，其中 khala 链数据 **94G**，kusama 链数据 **669G**，统计时间为 **2022/2/23**
+目前节点区块数据大小为 **887 GB**，其中 khala 链数据 **114G**，kusama 链数据 **774G**，统计时间为 **2022/4/13**
 
 节点数据默认保存地点为 `/var/khala-dev-node`，其中 khala 链数据保存在 `chains` 子文件夹下，kusama 链数据保存在 `polkadot` 子文件夹下。
 
