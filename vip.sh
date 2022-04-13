@@ -1,6 +1,6 @@
 #!/bin/bash
 
-vip=192.168.100.250
+vip=192.168.101.250
 dev=lo:1
 echo 1 > /proc/sys/net/ipv4/conf/all/arp_ignore
 echo 1 > /proc/sys/net/ipv4/conf/lo/arp_ignore
