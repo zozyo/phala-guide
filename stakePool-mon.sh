@@ -1,11 +1,16 @@
-pid=2000
+# Pool ID
+pid=0
+
+# Node address
 ENDPOINT="ws://127.0.0.1:9944"
 
+# When stake changes
 function alertStakeChange(){
 	#replace with any alert commands
 	echo "池$1：质押变化量：$2，当前闲置量：$3，总质押量：$4"
 }
 
+# When has withdraw queue
 function alertWithdrawSum(){
 	#replace with any alert commands
 	echo "池$1：提质押等待总额：$2"
