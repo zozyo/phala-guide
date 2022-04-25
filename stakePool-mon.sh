@@ -49,6 +49,31 @@ function getWithdrawSum(){
 	echo $sum
 }
 
+function checkRely(){
+	if ! type node > /dev/null; then
+		if [ $(id -u) -ne 0 ]; then
+			echo "请使用 sudo 运行以安装 node!"
+			exit 1
+		fi
+		curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+		apt-get install -y nodejs
+	fi
+	if ! type jq > /dev/null; then
+		if [ $(id -u) -ne 0 ]; then
+			echo "请使用 sudo 运行以安装 jq!"
+			exit 1
+		fi
+		apt-get install -y jq
+	fi
+	if [ -f console.js ]; then
+		echo "缺少 console.js 尝试下载..."
+		#wget https://raw.githubusercontent.com/Phala-Network/solo-mining-scripts/main/tools/console.js -O console.js
+		wget https://github.suugee.workers.dev/https://raw.githubusercontent.com/Phala-Network/solo-mining-scripts/main/tools/console.js -O console.js
+	fi
+}
+
+checkRely
+
 lastStake=0
 
 while true; do
