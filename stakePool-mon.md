@@ -2,7 +2,9 @@
 
 方便大家监控自己矿池的质押情况，写了个简单的脚本。
 
-运行此脚本即可 [stakePool-mon.sh](./stakePool-mon.sh)
+此脚本依赖官方的 console.js，需要安装过 node
+
+[stakePool-mon.sh](./stakePool-mon.sh)
 
 请自行更改脚本开头的矿池编号与node地址，node地址默认使用本地。
 
@@ -15,11 +17,13 @@
 下载脚本（已下载的可跳过）
 
 ```
+wget https://raw.githubusercontent.com/Phala-Network/solo-mining-scripts/main/tools/console.js -O console.js
 wget https://raw.githubusercontent.com/zozyo/phala-guide/main/stakePool-mon.sh -O stakePool-mon.sh
 ```
 
 * *国内下载有问题的可以使用下面的命令*
 ```
+wget https://github.suugee.workers.dev/https://raw.githubusercontent.com/Phala-Network/solo-mining-scripts/main/tools/console.js -O console.js
 wget https://github.suugee.workers.dev/https://raw.githubusercontent.com/zozyo/phala-guide/main/stakePool-mon.sh -O stakePool-mon.sh
 ```
 
