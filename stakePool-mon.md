@@ -21,12 +21,6 @@ wget https://raw.githubusercontent.com/Phala-Network/solo-mining-scripts/main/to
 wget https://raw.githubusercontent.com/zozyo/phala-guide/main/stakePool-mon.sh -O stakePool-mon.sh
 ```
 
-* *国内下载有问题的可以使用下面的命令*
-```
-wget https://github.suugee.workers.dev/https://raw.githubusercontent.com/Phala-Network/solo-mining-scripts/main/tools/console.js -O console.js
-wget https://github.suugee.workers.dev/https://raw.githubusercontent.com/zozyo/phala-guide/main/stakePool-mon.sh -O stakePool-mon.sh
-```
-
 添加脚本运行权限
 ```
 sudo chmod +x stakePool-mon.sh
