@@ -16,11 +16,6 @@
 wget https://raw.githubusercontent.com/zozyo/phala-guide/main/node-auto-restart.sh -O node-auto-restart.sh
 ```
 
-* *国内下载有问题的可以使用下面的命令*
-```
-wget https://github.suugee.workers.dev/https://raw.githubusercontent.com/zozyo/phala-guide/main/node-auto-restart.sh -O node-auto-restart.sh
-```
-
 添加脚本运行权限
 ```
 sudo chmod +x node-auto-restart.sh
