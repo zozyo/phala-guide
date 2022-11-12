@@ -131,7 +131,7 @@ curl -sH "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method"
 
 ### 2. pherry或prb (中转组件)
 
-中转组件是一个无状态的转换机，只起到传话筒的作用。重启中转组件只会导致很短暂的 pruntime 的暂停同步。
+pherry 是一个无缓存的转换机。重启中转组件只会导致很短暂的 pruntime 的暂停同步。
 
 有时官方可能会有链上升级，会有通知重启中转组件，建议保持关注官方的技术交流群，以免造成损失。
 
