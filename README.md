@@ -38,7 +38,7 @@ stateDiagram-v2
     node(节点) --> node(节点) : 只有节点要求连接公网，且端口开放
     node(节点) --> pherry或prb(中转组件) : 从节点获取区块数据
     pherry或prb(中转组件) --> pruntime(挖矿程序) : 转换区块数据供挖矿程序读取
-    pherry或prb(中转组件) --> node(节点) : 转换并提交挖矿程序汇报的数据
+    pherry或prb(中转组件) --> node(节点) : 提交挖矿程序汇报的数据
     pruntime(挖矿程序) --> pherry或prb(中转组件) : 汇报数据给中转组件
     pruntime(挖矿程序) --> pruntime(挖矿程序) : 只有挖矿程序强制要求SGX
 ```
