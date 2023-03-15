@@ -48,7 +48,7 @@ async function main() {
 			"owner": poolNfts[i].owner,
 			"share": userNftShare
 		}
-
+		//Only show stakers with share > 0
 		if ( poolStaker.share != "0" ) poolStakerList.push(poolStaker)
 	}
 
