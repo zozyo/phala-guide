@@ -1,0 +1,13 @@
+---
+relaychain:
+  select_policy: Failover
+  data_sources:
+    - !SubstrateWebSocketSource
+      endpoint: ws://{node-ip}:9945
+      pruned: false
+parachain:
+  select_policy: Failover
+  data_sources:
+    - !SubstrateWebSocketSource
+      endpoint: ws://{node-ip}:9944
+      pruned: false

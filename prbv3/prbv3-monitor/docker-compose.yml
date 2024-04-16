@@ -1,0 +1,8 @@
+version: "3"
+services:
+  monitor:
+    image: phalanetwork/prb3-monitor:latest
+    restart: always
+    network_mode: host
+    volumes:
+      - ./wm.yml:/app/public/wm.yml

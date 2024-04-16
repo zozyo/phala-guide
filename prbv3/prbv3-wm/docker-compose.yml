@@ -1,0 +1,16 @@
+version: "3"
+services:
+  wm:
+    image: phalanetwork/prb3:latest
+    hostname: prb-local
+    restart: always
+    network_mode: host
+    logging:
+      options:
+        max-size: "1g"
+    environment:
+      - MGMT_LISTEN_ADDRESSES=0.0.0.0:3001
+      - RUST_BACKTRACE=1
+      - RUST_LOG=info,pherry=off,phactory_api=off,prb=info
+    volumes:
+      - ./prb-wm-data:/var/data/prb-wm
